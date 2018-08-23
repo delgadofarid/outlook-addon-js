@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Call a Service using FabricJ</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
+
+    <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
+    <!--link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.min.css">
+    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.components.min.css"-->
+
+    <!--Fabric JS-->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css" />
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.components.min.css" />
+    <script src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/js/fabric.min.js"></script>
+    
+    <!-- Template styles -->    
+    <link href="forward-email.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="ms-font-l ms-landing-page">
+    <main class="ms-landing-page__main">
+        <section class="ms-landing-page__content ms-font-m ms-fontColor-neutralPrimary">
+          <div class="ms-font-xxl">E-Mail Information</div>
+            <div class="ms-Grid">
+              <div class="ms-Grid-row">
+                <div class="ms-TextField">
+                  <label class="ms-Label" is-required>Email Description</label>
+                  <!--input class="ms-TextField-field" id="github-user" type="text" value="" placeholder="Please enter email description"-->
+                  <input class="ms-TextField-field" id="email-desc" type="text" value="" placeholder="Please enter email description">
+                </div>
+              </div>
+              <div class="ms-Grid-row">
+                <!--ul id="gist-list" class="ms-List">
+                </ul-->
+                <div class="ms-Dropdown" tabindex="0">
+                  <label class="ms-Label" is-required>Choose Doc Type</label>
+                  <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
+                  <select id="doctype-list" class="ms-Dropdown-select">
+                    <option>Choose a doctype&amp;hellip;</option>
+                    <option>Invoice</option>
+                    <option>Packing List</option>
+                    <option>SAE</option>
+                    <option>PO</option>
+                  </select>
+                </div>
+              </div>
+              <div id="error-display" class="ms-Grid-row" style="display: none;">
+                <div class="ms-font-l ms-fontWeight-semibold">An error occurred:</div>
+                <pre><code id="error-text"></code></pre>
+              </div>
+              <div id="success-display" class="ms-Grid-row" style="display: none;">
+                <div class="ms-font-l ms-fontWeight-semibold">Operation success! </div>
+                <pre><code id="success-text"></code></pre>
+              </div>
+            </div>
+            <!--button class="ms-Button ms-Button--primary" id="insert-button" disabled-->
+            <button class="ms-Button ms-Button--primary" id="forward-button">
+              <span class="ms-Button-label">Forward</span>
+            </button>
+        </section>
+    </main>
+</body>
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="forward-email.js"></script>
+<script type="text/javascript" src="../helpers/outlook-api.js"></script>
+<script type="text/javascript">
+  var DropdownHTMLElements = document.querySelectorAll('.ms-Dropdown');
+  for (var i = 0; i < DropdownHTMLElements.length; ++i) {
+    var Dropdown = new fabric['Dropdown'](DropdownHTMLElements[i]);
+  }
+</script>
+</html>

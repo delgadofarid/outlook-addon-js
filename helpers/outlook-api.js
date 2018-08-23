@@ -24,7 +24,7 @@ function attachmentTokenCallback(asyncResult, userContext) {
 }
 
 function postMail(_Item, descrPost, doctypePost, callback) {
-  var requestUrl = 'https://localhost:8443/entities.mail';
+  var requestUrl = 'https://localhost:8443/entities.mail'; // BACKEND ENDPOINT
 
   var attachments = [];
 
